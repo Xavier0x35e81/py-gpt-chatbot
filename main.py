@@ -19,12 +19,9 @@ memory = ConversationBufferMemory(
 )
 
 prompt = ChatPromptTemplate(
-    input_variables=[
-        "content",
-        #  "messages"
-    ],
+    input_variables=["content", "messages"],
     messages=[
-        # MessagesPlaceholder(variable_name="messages"),
+        MessagesPlaceholder(variable_name="messages"),
         HumanMessagePromptTemplate.from_template("{content}"),
     ],
 )
@@ -32,7 +29,7 @@ prompt = ChatPromptTemplate(
 chain = LLMChain(
     llm=chat,
     prompt=prompt,
-    # memory=memory,
+    memory=memory,
 )
 
 while True:
