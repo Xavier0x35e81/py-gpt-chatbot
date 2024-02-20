@@ -13,7 +13,7 @@ load_dotenv()
 chat = ChatOpenAI()
 
 memory = ConversationBufferMemory(
-    # chat_memory=FileChatMessageHistory("messages.json"),
+    chat_memory=FileChatMessageHistory("messages.json"),
     memory_key="messages",
     return_messages=True,
 )
